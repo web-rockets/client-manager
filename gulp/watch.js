@@ -36,6 +36,13 @@ gulp.task('watch', ['inject'], function () {
     }
   });
 
+  gulp.watch([
+    path.join(conf.paths.src, '/app/**/lang/*.json')
+  ], function(event) {
+    gulp.start('i18n');
+    gulp.start('inject-reload');
+  });
+
   gulp.watch(path.join(conf.paths.src, '/app/**/*.html'), function(event) {
     browserSync.reload(event.path);
   });
