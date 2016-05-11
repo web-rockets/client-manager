@@ -2,10 +2,19 @@ angular.module 'clientManager'
   .config ($stateProvider, $urlRouterProvider) ->
     'ngInject'
     $stateProvider
-      .state 'home',
-        url: '/'
-        templateUrl: 'app/main/main.html'
-        controller: 'MainController'
-        controllerAs: 'main'
+      .state 'wr',
+        url: ''
+        abstract: true
+        views:
+          'index':
+            templateUrl: 'app/main/main.html'
+      .state 'wr.home',
+        url: '/home'
+        views:
+          'content':
+            templateUrl: 'app/main/main.html'
+            controller: 'MainController'
+            controllerAs: 'main'
 
-    $urlRouterProvider.otherwise '/'
+    $urlRouterProvider.when '', '/home'
+    $urlRouterProvider.otherwise '/home'
