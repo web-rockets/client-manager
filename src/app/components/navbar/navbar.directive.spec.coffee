@@ -14,7 +14,7 @@ describe 'directive navbar', () ->
     timeInMs = new Date()
     timeInMs = timeInMs.setHours timeInMs.getHours() - 24
 
-    element = angular.element "<acme-navbar creation-date='#{timeInMs}'></acme-navbar>"
+    element = angular.element "<wr-navbar></wr-navbar>"
 
     $compile(element) $rootScope.$new()
     $rootScope.$digest()
@@ -22,12 +22,3 @@ describe 'directive navbar', () ->
 
   it 'should be compiled', () ->
     expect(element.html()).not.toEqual null
-
-  it 'should have isolate scope object with instanciate members', () ->
-    expect(vm).toEqual jasmine.any Object
-
-    expect(vm.creationDate).toEqual jasmine.any Number
-    expect(vm.creationDate).toEqual timeInMs
-
-    expect(vm.relativeDate).toEqual jasmine.any String
-    expect(vm.relativeDate).toEqual 'a day ago'
