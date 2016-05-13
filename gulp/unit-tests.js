@@ -22,12 +22,12 @@ function runTests (singleRun, done) {
     preprocessors[path] = ['ng-html2js'];
   });
 
-  if (singleRun) {
+  // if (singleRun) {
     pathSrcJs.forEach(function(path) {
       preprocessors[path] = ['coverage'];
     });
     reporters.push('coverage')
-  }
+  // }
 
   var localConfig = {
     configFile: path.join(__dirname, '/../karma.conf.js'),
