@@ -17,24 +17,35 @@ var pathSrcJs = [
 function runTests (singleRun, done) {
   var reporters = ['progress'];
   var preprocessors = {};
+  var coverageReporter = {
+    dir: 'coverage',
+    reporters: [
+      { type: 'html', subdir: 'report-html' },
+      { type: 'lcov', subdir: 'report-lcov' },
+      { type: 'text-summary' },
+    ]
+  }
 
   pathSrcHtml.forEach(function(path) {
     preprocessors[path] = ['ng-html2js'];
   });
 
-  // if (singleRun) {
-    pathSrcJs.forEach(function(path) {
-      preprocessors[path] = ['coverage'];
-    });
-    reporters.push('coverage')
-  // }
+  pathSrcJs.forEach(function(path) {
+    preprocessors[path] = ['coverage'];
+  });
+  reporters.push('coverage')
+  if (singleRun) {
+    coverageReporter.reporters.pop()
+    coverageReporter.reporters.push({type: 'text'})
+  }
 
   var localConfig = {
     configFile: path.join(__dirname, '/../karma.conf.js'),
     singleRun: singleRun,
     autoWatch: !singleRun,
     reporters: reporters,
-    preprocessors: preprocessors
+    preprocessors: preprocessors,
+    coverageReporter: coverageReporter
   };
 
   var server = new karma.Server(localConfig, function(failCount) {
