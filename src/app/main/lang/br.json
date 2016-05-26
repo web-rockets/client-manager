@@ -1,0 +1,16 @@
+{
+  "action": {
+    "edit": "Editar",
+    "remove": "Remover",
+    "search": "Procurar",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+  },
+  "table": {
+    "no_records": "Nenhum dado encontrado"
+  },
+  "validation": {
+    "required": "Campo '{{ field }}' obrigatório",
+    "invalid_email": "E-mail inválido",
+  }
+}
