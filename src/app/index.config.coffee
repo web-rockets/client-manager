@@ -1,5 +1,5 @@
 angular.module 'clientManager'
-  .config ($logProvider, toastrConfig, $translateProvider) ->
+  .config ($logProvider, toastrConfig, $translateProvider, APIConfig) ->
     'ngInject'
     # Enable log
     $logProvider.debugEnabled true
@@ -10,3 +10,7 @@ angular.module 'clientManager'
     toastrConfig.preventDuplicates = true
     toastrConfig.progressBar = true
     $translateProvider.preferredLanguage('br')
+
+    angular.extend APIConfig, {
+      baseUrl: 'http://localhost:4000'
+    }
