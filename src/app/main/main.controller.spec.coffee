@@ -3,9 +3,7 @@ describe 'controllers', () ->
 
   beforeEach module 'clientManager'
 
-  beforeEach inject ($controller, webDevTec, toastr) ->
+  beforeEach inject ($controller, toastr) ->
     vm = $controller 'MainController'
 
   it 'should define more than 5 awesome things', () ->
-    expect(angular.isArray(vm.awesomeThings)).toBeTruthy()
-    expect(vm.awesomeThings.length == 5).toBeTruthy()
