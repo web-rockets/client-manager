@@ -20,27 +20,20 @@ gulp.task('partials', function () {
       collapseBooleanAttributes: true,
       collapseWhitespace: true
     }))
-    .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'clientManager',
-      root: 'app'
+    .pipe($.angularTemplatecache('templates.module.js', {
+      module: 'wr.templates',
+      root: 'app',
+      standalone: true
     }))
-    .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
+    .pipe(gulp.dest(conf.paths.tmp + '/serve/app/'));
 });
 
 gulp.task('html', ['inject', 'partials'], function () {
-  var partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), { read: false });
-  var partialsInjectOptions = {
-    starttag: '<!-- inject:partials -->',
-    ignorePath: path.join(conf.paths.tmp, '/partials'),
-    addRootSlash: false
-  };
-
   var htmlFilter = $.filter('*.html', { restore: true });
   var jsFilter = $.filter('**/*.js', { restore: true });
   var cssFilter = $.filter('**/*.css', { restore: true });
 
   return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
-    .pipe($.inject(partialsInjectFile, partialsInjectOptions))
     .pipe($.useref())
     .pipe(jsFilter)
     .pipe($.sourcemaps.init())
@@ -52,7 +45,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(cssFilter)
     // .pipe($.sourcemaps.init())
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
-    .pipe($.replace('../../bower_components/font-awesome/fonts', '../fonts'))
+    .pipe($.replace('../../bower_components/font-awesome/fonts/', '../fonts/'))
     .pipe($.cssnano())
     .pipe($.rev())
     // .pipe($.sourcemaps.write('maps'))
