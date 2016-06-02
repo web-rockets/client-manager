@@ -14,7 +14,7 @@ gulp.task('scripts-reload', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', ['i18n'], function() {
   return buildScripts();
 });
 

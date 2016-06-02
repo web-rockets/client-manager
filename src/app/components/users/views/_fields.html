@@ -1,0 +1,41 @@
+<div class="form-group" ng-class="{'has-error': form.name.$invalid && (form.name.$dirty || vm.submitted)}">
+  <label for="name" class="control-label" translate="users.name"></label>
+  <input type="text" name="name" id="name" class="form-control" ng-model="vm.user.name"
+    ng-required="true"
+    placeholder="{{ 'users.enter_name' | translate }}">
+  <ng-messages for="form.name.$error" ng-show="form.name.$dirty || vm.submitted">
+    <ng-message when="required">
+      <span class="help-block" translate="validation.required"
+        translate-value-field="{{ 'users.name' | translate }}"></span>
+    </ng-message>
+  </ng-messages>
+</div>
+<div class="form-group" ng-class="{'has-error': form.email.$invalid && (form.email.$dirty || vm.submitted)}">
+  <label for="email" class="control-label" translate="users.email">Email</label>
+  <input type="email" name="email" id="email" class="form-control" ng-model="vm.user.email"
+    required
+    placeholder="{{ 'users.enter_email' | translate }}">
+  <ng-messages for="form.email.$error" ng-show="form.email.$dirty || vm.submitted">
+    <ng-message when="required">
+      <span class="help-block" translate="validation.required"
+        translate-value-field="{{ 'users.email' | translate }}"></span>
+    </ng-message>
+    <ng-message when="email">
+      <span class="help-block" translate="validation.invalid_email"></span>
+    </ng-message>
+  </ng-messages>
+</div>
+<div class="form-group" ng-class="{'has-error': form.password.$invalid && (form.password.$dirty || vm.submitted)}">
+  <label for="password" class="control-label" translate="users.password">password</label>
+  <input type="password" name="password" id="password" class="form-control" ng-model="vm.user.password"
+    ng-required="!vm.user.id"
+    placeholder="{{ 'users.enter_password' | translate }}"
+    wr-password-toggle>
+  <ng-messages for="form.password.$error" ng-show="form.password.$dirty || vm.submitted">
+    <ng-message when="required">
+      <span class="help-block" translate="validation.required"
+        translate-value-field="{{ 'users.password' | translate }}"></span>
+    </ng-message>
+  </ng-messages>
+</div>
+

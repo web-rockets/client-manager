@@ -1,0 +1,57 @@
+<h1 translate="users.title">Usuários</h1>
+
+<div st-table="vm.displayedUsers" st-safe-src="vm.users">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group form-horizontal">
+        <input type="text" st-search placeholder="{{ 'action.search' | translate }}" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="pull-right">
+        <a ui-sref="wr.users.new" class="btn btn-primary" >
+          <span translate="users.new">Novo Usuário</span>&nbsp;
+          <i class="fa fa-plus"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <table class="table table-bordered table-striped table-responsive table-hover">
+      <thead>
+        <tr>
+          <th width="10%">#</th>
+          <th translate="users.name">Nome</th>
+          <th translate="users.email">E-mail</th>
+          <th width="10%">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in vm.displayedUsers">
+          <th scope="row">{{ user.id }}</th>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button uib-tooltip="{{ 'action.edit' | translate }}" type="button" class="btn btn-xs btn-default"
+              ng-click="vm.edit(user)">
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button uib-tooltip="{{ 'action.delete' | translate }}" type="button" class="btn btn-xs btn-danger"
+              ng-click="vm.delete(user)"
+              confirm="{{ 'users.confirm_deletion' | translate }}"
+              confirm-ok="{{ 'button.ok' | translate }}"
+              confirm-cancel="{{ 'button.cancel' | translate }}"
+              confirm-title="{{ 'title.confirmation' | translate }}">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+        <tr ng-hide="vm.displayedUsers.length">
+          <td colspan="4">
+            <span translate="table.no_records">Não há registros</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
