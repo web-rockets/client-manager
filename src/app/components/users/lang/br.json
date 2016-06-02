@@ -1,0 +1,15 @@
+{
+  "users": {
+    "title": "Usuários",
+    "name": "Nome",
+    "email": "E-mail",
+    "password": "Senha",
+    "password_confirmation": "Confirmação de senha",
+    "new": "Novo Usuário",
+    "user": "Usuário {{name}}",
+    "enter_name": "Digite o nome do usuário",
+    "enter_email": "Digite o email do usuário",
+    "enter_password": "Digite a senha do usuário",
+    "confirm_deletion": "Tem certeza que deseja remover este usuário?",
+  }
+}
