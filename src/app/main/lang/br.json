@@ -1,7 +1,7 @@
 {
   "action": {
     "edit": "Editar",
-    "remove": "Remover",
+    "delete": "Remover",
     "search": "Procurar",
     "save": "Salvar",
     "cancel": "Cancelar",
@@ -12,5 +12,12 @@
   "validation": {
     "required": "Campo '{{ field }}' obrigatório",
     "invalid_email": "E-mail inválido",
+  },
+  "title": {
+    "confirmation": "Confirmação"
+  },
+  "button": {
+    "ok": "OK",
+    "cancel": "Cancelar"
   }
 }

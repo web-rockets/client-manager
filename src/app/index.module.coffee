@@ -12,4 +12,5 @@ angular.module 'clientManager', [
   # projetos
   'wr.users',
   'wr.i18n',
+  'wr.templates',
 ]
