@@ -1,6 +1,8 @@
 angular.module 'clientManager'
-  .config ($stateProvider, $urlRouterProvider) ->
+  .config ($stateProvider, $urlRouterProvider, $translateProvider) ->
     'ngInject'
+    $translateProvider.useSanitizeValueStrategy 'sanitize'
+
     $stateProvider
       .state 'wr',
         url: ''
