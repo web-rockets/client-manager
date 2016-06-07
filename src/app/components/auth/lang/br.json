@@ -1,0 +1,13 @@
+{
+  "auth": {
+    "sign_in": "Entrar",
+    "sign_up": "Registrar",
+    "login": {
+      "remember_me": "Lembrar-me",
+      "forgot_password": "Esqueci minha senha",
+      "email": "E-mail",
+      "password": "Senha",
+      "submit": "Entrar",
+    },
+  }
+}
