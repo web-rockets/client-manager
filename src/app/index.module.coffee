@@ -11,6 +11,7 @@ angular.module 'clientManager', [
   'pascalprecht.translate',
   # projetos
   'wr.users',
+  'wr.auth',
   'wr.i18n',
   'wr.templates',
 ]
