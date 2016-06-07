@@ -43,7 +43,7 @@ gulp.task('watch', ['inject'], function () {
     gulp.start('inject-reload');
   });
 
-  gulp.watch(path.join(conf.paths.src, '/app/**/*.html'), function(event) {
+  gulp.watch(path.join(conf.paths.src, '/app/**/*.html'), ['partials', 'inject-reload'], function(event) {
     browserSync.reload(event.path);
   });
 });
