@@ -1,0 +1,10 @@
+<li class="dropdown" uib-dropdown>
+  <a class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-user"></i> &nbsp; {{ vm.current_user.name }} <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" uib-dropdown-menu>
+    <li><a href=""><span translate="login-dropdown.profile">Perfil</span></a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="" ui-sref="wr.auth.logout"><span translate="login-dropdown.logout">Sair</span></a></li>
+  </ul>
+</li>
