@@ -1,7 +1,7 @@
-angular.module 'clientManager'
+angular.module 'wr.navbar'
   .directive 'wrNavbar', ->
 
-    NavbarController = (moment) ->
+    NavbarController = () ->
       'ngInject'
       vm = this
       return
