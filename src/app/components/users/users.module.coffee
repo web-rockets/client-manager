@@ -10,4 +10,5 @@ angular.module 'wr.users', [
   'wr.password-toggle',
   'wr.i18n',
   'wr.templates',
+  'wr.notify',
 ]

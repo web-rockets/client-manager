@@ -15,9 +15,10 @@ describe 'userService', ->
       expect(API.get).toHaveBeenCalledWith('/users')
 
   describe 'when delete(user)', ->
-    it 'should call API.delete method and return the removed user', inject (userService, API, $q, $rootScope) ->
+    it 'should call API.delete method and return the removed user', inject (userService, API, $q, $rootScope, notify) ->
       # Arrange
       deferredDelete = $q.defer()
+      spyOn(notify, 'success').and.callThrough()
       spyOn(API, 'delete').and.returnValue deferredDelete.promise
       removedUser = id: 3, name: 'Marco Túlio'
       user = angular.copy removedUser
@@ -28,6 +29,7 @@ describe 'userService', ->
       $rootScope.$digest()
       # Assert
       expect(API.delete).toHaveBeenCalledWith('/users/3')
+      expect(notify.success).toHaveBeenCalledWith(message: 'users.action.successfully_deleted')
 
   describe 'when get(id)', ->
     it 'should expect a user object from a request', inject (API, userService, $q, $rootScope) ->
@@ -58,13 +60,15 @@ describe 'userService', ->
       id: 2
       name: 'Marco'
 
-    beforeEach inject (API, $q) ->
+    beforeEach inject (API, $q, notify) ->
       deferredRequest = $q.defer()
       spyOn(API, 'put').and.returnValue(deferredRequest.promise)
       spyOn(API, 'post').and.returnValue(deferredRequest.promise)
+      spyOn(notify, 'success').and.callThrough()
+      spyOn(notify, 'error').and.callThrough()
       deferredRequest.resolve data: exampleUser
 
-    it 'should call API.put if user has id', inject (userService, $rootScope, API) ->
+    it 'should call API.put if user has id', inject (userService, $rootScope, API, notify) ->
       # Act
       userService.save(exampleUser).then (user) ->
         # Assert
@@ -72,7 +76,8 @@ describe 'userService', ->
       $rootScope.$digest()
       expect(API.put).toHaveBeenCalledWith('/users/2', user: exampleUser)
       expect(API.post).not.toHaveBeenCalled()
-    it 'should call API.post if user does not have and id', inject (userService, $rootScope, API) ->
+      expect(notify.success).toHaveBeenCalledWith(message: 'users.action.successfully_updated')
+    it 'should call API.post if user does not have and id', inject (userService, $rootScope, API, notify) ->
       # Arrange
       delete exampleUser.id
       # Act
@@ -82,4 +87,5 @@ describe 'userService', ->
       $rootScope.$digest()
       expect(API.post).toHaveBeenCalledWith('/users', user: exampleUser)
       expect(API.put).not.toHaveBeenCalled()
+      expect(notify.success).toHaveBeenCalledWith(message: 'users.action.successfully_saved')
 

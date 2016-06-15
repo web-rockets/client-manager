@@ -1,6 +1,6 @@
 {
   "users": {
-    "title": "Usuários",
+    "title": "Usuarios",
     "name": "Nome",
     "email": "E-mail",
     "password": "Senha",
@@ -11,5 +11,10 @@
     "enter_email": "Digite o email do usuário",
     "enter_password": "Digite a senha do usuário",
     "confirm_deletion": "Tem certeza que deseja remover este usuário?",
+    "action": {
+        "successfully_saved": "Usuário salvo com sucesso",
+        "successfully_updated": "Usuário atualizado com sucesso",
+        "successfully_deleted": "Usuário removido com sucesso",
+    },
   }
 }
