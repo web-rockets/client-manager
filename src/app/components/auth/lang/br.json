@@ -9,5 +9,11 @@
       "password": "Senha",
       "submit": "Entrar",
     },
+    "404": {
+      "title": "",
+      "sorry_description": "Desculpe mas a página que você estava procurando não foi encontrada ou não existe.",
+      "try_to_refresh": "Tente recarregar a página ou clique no botão abaixo para voltar a página inicial.",
+      "back_to_home": "Voltar a página inicial",
+    }
   }
 }
