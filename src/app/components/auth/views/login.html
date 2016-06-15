@@ -6,8 +6,10 @@
     <form class="form-signin" name="form" ng-submit="vm.submit(form)" novalidate>
       <span id="reauth-email" class="reauth-email"></span>
       <input type="email" id="inputEmail" class="form-control" name="email"
+        ng-model="vm.credentials.email"
         placeholder="{{ 'auth.login.email' | translate }}" required autofocus>
       <input type="password" id="inputPassword" class="form-control" name="password"
+        ng-model="vm.credentials.password"
         placeholder="{{ 'auth.login.password' | translate }}" required>
       <div id="remember" class="checkbox">
         <label>
