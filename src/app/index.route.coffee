@@ -1,6 +1,7 @@
 angular.module 'clientManager'
   .config ($stateProvider, $urlRouterProvider) ->
     'ngInject'
+
     $stateProvider
       .state 'wr',
         url: ''
@@ -16,5 +17,6 @@ angular.module 'clientManager'
             controller: 'MainController'
             controllerAs: 'main'
 
-    $urlRouterProvider.when '', '/home'
-    $urlRouterProvider.otherwise '/home'
+    $urlRouterProvider.when '', '/users'
+    $urlRouterProvider.when '/', '/users'
+    $urlRouterProvider.otherwise '/404'

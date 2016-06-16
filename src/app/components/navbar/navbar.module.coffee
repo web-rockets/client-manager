@@ -1,14 +1,11 @@
-angular.module 'wr.users', [
+angular.module 'wr.navbar', [
   'pascalprecht.translate',
-  'smart-table',
-  'ngMessages',
-  'ui.router',
   'ui.bootstrap',
-  'angular-confirm',
+  'ngStorage',
   # Project Dependencies
   'wr.api',
+  'wr.auth',
   'wr.password-toggle',
   'wr.i18n',
   'wr.templates',
-  'wr.notify',
 ]

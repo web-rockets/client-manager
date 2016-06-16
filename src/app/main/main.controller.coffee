@@ -1,5 +1,6 @@
 angular.module 'clientManager'
-  .controller 'MainController', ($timeout, toastr) ->
+  .controller 'MainController', () ->
     'ngInject'
     vm = this
+    vm.pageTitle = 'Client Manager'
     return

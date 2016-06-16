@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a id="logo" class="navbar-brand" ui-sref="wr.home">
+      <a ui-sref="wr.users" id="logo" class="navbar-brand">
         <img src="assets/images/logo-in-black.png" alt="" />
       </a>
     </div>
@@ -15,6 +15,9 @@
       <ul class="nav navbar-nav">
         <li ui-sref-active="active"><a ui-sref="wr.clients" translate="navbar.clients">Clients</a></li>
         <li ui-sref-active="active"><a ui-sref="wr.users.list" translate="navbar.users">Users</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <wr-login-dropdown></wr-login-dropdown>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
