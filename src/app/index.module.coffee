@@ -7,11 +7,11 @@ angular.module 'clientManager', [
   'ngAria',
   'ui.router',
   'ui.bootstrap',
-  'toastr',
   'pascalprecht.translate',
   # projetos
   'wr.users',
   'wr.auth',
+  'wr.navbar',
   'wr.i18n',
   'wr.templates',
 ]

@@ -1,7 +1,6 @@
 angular.module 'clientManager'
-  .config ($stateProvider, $urlRouterProvider, $translateProvider) ->
+  .config ($stateProvider, $urlRouterProvider) ->
     'ngInject'
-    $translateProvider.useSanitizeValueStrategy 'sanitize'
 
     $stateProvider
       .state 'wr',
@@ -18,5 +17,6 @@ angular.module 'clientManager'
             controller: 'MainController'
             controllerAs: 'main'
 
-    $urlRouterProvider.when '', '/home'
-    $urlRouterProvider.otherwise '/home'
+    $urlRouterProvider.when '', '/users'
+    $urlRouterProvider.when '/', '/users'
+    $urlRouterProvider.otherwise '/404'
